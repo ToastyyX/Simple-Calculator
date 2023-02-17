@@ -1,5 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Calculator {
 
     private String userInput;
@@ -17,17 +18,18 @@ public class Calculator {
                 4. /""");
         System.out.print("Enter the symbol of your desired operation: ");
         userInput = stdIn.nextLine();
-
-        if (userInput.equals("+")) {
-            double x,y;
-            try {
-                System.out.print("X: ");
-                x = stdIn.nextDouble();
-                System.out.print("Y: ");
-                y = stdIn.nextDouble();
-                System.out.println(x + " + " + y + " = " + Math.round(addition(x,y) * 100.00) / 100.00);
-            }catch (InputMismatchException exception) {
-                System.out.println("Invalid Input");
+        while (isInput(userInput)) {
+            if (userInput.equals("+")) {
+                double x, y;
+                try {
+                    System.out.print("X: ");
+                    x = stdIn.nextDouble();
+                    System.out.print("Y: ");
+                    y = stdIn.nextDouble();
+                    System.out.println(x + " + " + y + " = " + Math.round(addition(x, y) * 100.00) / 100.00);
+                } catch (InputMismatchException exception) {
+                    System.out.println("Invalid Input");
+                }
             }
         }
     }
